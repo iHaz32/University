@@ -1,0 +1,25 @@
+(define (problem projectProb)
+    (:domain projectDomain)
+    (:objects
+        r1 c1 c2 c3 d1 d2 d3)
+    (:init
+		(robot r1)
+		(container c1) (container c2) (container c3)
+		(dock d1) (dock d2) (dock d3)
+		(isConnected d1 d3) (isConnected d1 d2) (isConnected d3 d1) (isConnected d2 d1)
+		(containerOnDock c1 d1) (containerOnDock c3 d1) (containerOnDock c2 d2)
+		(robotOnDock r1 d2)
+		(isOnTop c2) (isOnTop c3)
+		(isOnStack c3)
+		(on c3 c1)
+	)
+    (:goal  
+		(and
+			(containerOnDock c1 d3) (containerOnDock c3 d3) (containerOnDock c2 d3)
+    		(robotOnDock r1 d1)
+    		(isOnTop c1) (isOnTop c3)
+    		(isOnStack c1)
+    		(on c1 c2)
+		)
+    )
+)
